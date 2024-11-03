@@ -1,4 +1,6 @@
 import asyncio
+import os
+import sys
 from logging.config import fileConfig
 
 from alembic import context
@@ -6,6 +8,7 @@ from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
+sys.path.append(os.path.join(sys.path[0], "src"))
 from src.infrastructure.database.models import Base
 from src.infrastructure.server.config import db_url
 
