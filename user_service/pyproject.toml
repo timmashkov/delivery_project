@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "user-service"
-version = "0.0.1"
+version = "0.0.2"
 description = ""
 authors = ["timmashkov <bodomizer@yandex.ru>"]
 readme = "README.md"
@@ -21,6 +21,7 @@ flake8 = "^7.1.1"
 isort = "^5.13.2"
 black = "^24.10.0"
 pyjwt = "^2.9.0"
+pypika = "^0.48.9"
 
 
 [build-system]

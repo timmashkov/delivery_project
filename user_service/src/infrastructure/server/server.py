@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 from typing import NoReturn, Optional
 
 from fastapi import APIRouter, FastAPI
+
 from src.infrastructure.base.singleton import Singleton
 
 
