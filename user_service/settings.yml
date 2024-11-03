@@ -1,0 +1,35 @@
+dynaconf_merge: true
+default:
+  NAME: user_service
+  HOST: 0.0.0.0
+  PORT: 8001
+  FAST_API_PATH: src.application:app
+  LOG_LEVEL: info
+  RELOADED: True
+  POSTGRES:
+    dialect: asyncpg
+    host: postgres
+    port: 5432
+    login: postgres
+    password: postgres
+    database: postgres
+    pgbouncer: False
+    echo: False
+    pool_min_size: 10
+    pool_max_size: 20
+    pool_timeout: 90
+    mat_view_time: 15
+  AUTH:
+    SECRET: secret
+    EXPIRATION: 3600
+    ITERATIONS: 1000
+    HASH_NAME: sha256
+    FORMATS: utf-8
+    ALGORYTHM: HS256
+    API_X_KEY_HEADER: key
+  REDIS:
+    host: localhost
+    port: 6379
+    username:
+    password:
+    db: 0

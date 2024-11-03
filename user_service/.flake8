@@ -1,0 +1,19 @@
+[flake8]
+max-line-length = 120
+statistics = True
+count = True
+no-accept-encodings = True
+extend-ignore = E203, P103, A005, A001, A003
+exclude = migrations
+
+commas-extra-whitespace = False
+debugger-max-variable-length = 30
+eradicate-aggressive = False
+eradicate-whitelist = # Пример, список разрешенных комментариев (через запятую)
+isort-config = .isort.cfg
+print-statement-check = True
+inline-quotes = double
+avoid-escape = False
+string-format-style = new
+
+enable-extensions = BUILTINS, COMMAS, COMPREHENSIONS, DEBUGGER, ERADICATE, ISORT, PEP3101, PRINT, QUOTES, STRING_FORMAT, SUPER_CALL
