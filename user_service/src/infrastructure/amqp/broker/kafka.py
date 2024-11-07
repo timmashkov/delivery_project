@@ -1,5 +1,5 @@
 import logging
-from asyncio import AbstractEventLoop, get_event_loop
+from asyncio import AbstractEventLoop, get_event_loop, sleep
 from typing import Any, Awaitable, List, Optional, Union
 
 from aiokafka import AIOKafkaConsumer, AIOKafkaProducer
@@ -81,12 +81,14 @@ class KafkaConsumer(BrokerSerializeMixin):
         self,
         host: str,
         port: int,
+        retry: int = 5,
         loop: Optional[AbstractEventLoop] = None,
-        topics: Optional[List[str]] = [],
+        topics: Optional[List[str]] = None,
         logging_config: Optional[str] = None,
     ):
         self.host = host
         self.port = port
+        self.retry = retry
         self.loop = loop if loop else get_event_loop()
         self.topics = topics if topics else []
         self.logging_config = logging_config.upper() if logging_config else logging.INFO
@@ -114,5 +116,14 @@ class KafkaConsumer(BrokerSerializeMixin):
     async def init_consuming(self, on_message: callable | Awaitable) -> None:
         await self._init_logger()
         async for msg in self.__consumer:
-            await on_message(msg)
-            logging.info("Сообщение получено")
+            for attempt in range(self.retry):
+                try:
+                    await on_message(msg)
+                    await self.__consumer.commit()
+                    logging.info("Сообщение получено")
+                    break
+                except Exception as e:
+                    logging.error(f"Ошибка при обработке сообщения: {e}. Попытка {attempt + 1} из {self.retry}")
+                    await sleep(0.1)
+            else:
+                logging.error(f"Не удалось обработать сообщение после {self.retry} попыток")

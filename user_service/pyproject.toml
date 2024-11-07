@@ -22,6 +22,8 @@ isort = "^5.13.2"
 black = "^24.10.0"
 pyjwt = "^2.9.0"
 pypika = "^0.48.9"
+tenacity = "^9.0.0"
+fastapi-filter = "^2.0.0"
 
 
 [build-system]
