@@ -123,7 +123,11 @@ class KafkaConsumer(BrokerSerializeMixin):
                     logging.info("Сообщение получено")
                     break
                 except Exception as e:
-                    logging.error(f"Ошибка при обработке сообщения: {e}. Попытка {attempt + 1} из {self.retry}")
+                    logging.error(
+                        f"Ошибка при обработке сообщения: {e}. Попытка {attempt + 1} из {self.retry}"
+                    )
                     await sleep(0.1)
             else:
-                logging.error(f"Не удалось обработать сообщение после {self.retry} попыток")
+                logging.error(
+                    f"Не удалось обработать сообщение после {self.retry} попыток"
+                )

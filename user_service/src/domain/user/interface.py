@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Any, Generic
+from typing import Any, Generic, Optional
 
 from src.domain.user import table_type
 
@@ -13,7 +13,11 @@ class UserReadRepository(ABC, Generic[table_type]):
         raise NotImplementedError
 
     @abstractmethod
-    async def get_list(self, **kwargs) -> Any:
+    async def get_by_login(self, **kwargs) -> Any:
+        raise NotImplementedError
+
+    @abstractmethod
+    async def find(self, filters: Optional[Any] = None) -> Any:
         raise NotImplementedError
 
 

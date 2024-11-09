@@ -2,10 +2,20 @@ from datetime import datetime
 from typing import Optional
 from uuid import UUID
 
-from pydantic import BaseModel, EmailStr, Field, field_validator, SecretStr
+from pydantic import BaseModel, EmailStr, Field, field_validator
 
 from src.infrastructure.base.patched_filter import PatchedFilter
 from src.infrastructure.database.models import User
+
+
+class LoginUser(BaseModel):
+    login: str
+    password: str
+
+
+class UserTokenResult(BaseModel):
+    access_token: str
+    refresh_token: str
 
 
 class UpdateUser(BaseModel):
@@ -32,7 +42,7 @@ class UpdateUser(BaseModel):
 
 
 class CreateUser(UpdateUser):
-    password: SecretStr
+    password: str
 
 
 class UserReturnData(CreateUser, UpdateUser):

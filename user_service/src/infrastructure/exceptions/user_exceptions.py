@@ -1,6 +1,6 @@
 from fastapi import status
 
-from infrastructure.base_entities.base_exception import BaseAPIException
+from src.infrastructure.base.base_exception import BaseAPIException
 
 
 class UserNotFound(BaseAPIException):
