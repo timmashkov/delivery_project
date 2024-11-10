@@ -1,5 +1,4 @@
 from fastapi import status
-
 from src.infrastructure.base.base_exception import BaseAPIException
 
 

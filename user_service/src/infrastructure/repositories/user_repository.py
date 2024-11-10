@@ -5,7 +5,6 @@ from asyncpg import UniqueViolationError
 from sqlalchemy import delete, insert, select, update
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import async_sessionmaker
-
 from src.domain.user.interface import UserReadRepository, UserWriteRepository
 from src.infrastructure.database.gateways.alchemy_gateway import AlchemyGateway
 from src.infrastructure.database.models import User

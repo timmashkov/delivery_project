@@ -3,7 +3,6 @@ from typing import Optional
 from uuid import UUID
 
 from pydantic import BaseModel, EmailStr, Field, field_validator
-
 from src.infrastructure.base.patched_filter import PatchedFilter
 from src.infrastructure.database.models import User
 

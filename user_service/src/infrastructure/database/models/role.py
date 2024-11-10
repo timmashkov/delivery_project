@@ -3,7 +3,6 @@ from typing import TYPE_CHECKING, List
 from sqlalchemy import String
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-
 from src.infrastructure.database.models.base import Base
 
 if TYPE_CHECKING:

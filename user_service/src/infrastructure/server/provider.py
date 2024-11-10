@@ -1,5 +1,4 @@
 from redis.asyncio import Redis
-
 from src.application.service.auth import AuthHandler
 from src.infrastructure.amqp.broker.kafka import KafkaConsumer, KafkaProducer
 from src.infrastructure.base.singleton import OnlyContainer, Singleton

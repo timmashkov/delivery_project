@@ -2,7 +2,6 @@ from typing import TYPE_CHECKING, List
 
 from sqlalchemy import Boolean, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-
 from src.infrastructure.database.models import Base
 
 if TYPE_CHECKING:

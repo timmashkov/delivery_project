@@ -2,7 +2,6 @@ from uuid import UUID
 
 from sqlalchemy import ForeignKey, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column
-
 from src.infrastructure.database.models.base import Base
 
 

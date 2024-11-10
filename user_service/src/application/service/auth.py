@@ -8,7 +8,6 @@ import orjson
 from fastapi import Security
 from fastapi.security import APIKeyHeader, HTTPAuthorizationCredentials, HTTPBearer
 from redis.asyncio import Redis
-
 from src.infrastructure.exceptions.token_exceptions import (
     InvalidRefreshToken,
     InvalidScopeToken,

@@ -11,7 +11,7 @@ from asyncio import (
 from typing import Any, Awaitable, List, NoReturn, Optional, Self, Union
 
 from aiokafka import AIOKafkaConsumer, AIOKafkaProducer
-from src.infrastructure.base.mixin.broker_mixin import BrokerSerializeMixin
+from app.infrastructure.base.mixin.broker_mixin import BrokerSerializeMixin
 
 
 class KafkaProducer(BrokerSerializeMixin):

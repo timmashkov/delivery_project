@@ -1,7 +1,6 @@
 from typing import Any, Union
 
 from orjson import dumps, loads
-
 from src.infrastructure.exceptions.mq_exceptions import (
     DeserializationError,
     SerializationError,

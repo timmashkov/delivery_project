@@ -4,7 +4,6 @@ from uuid import UUID
 
 from clickhouse_driver import Client
 from pypika import Query, Table
-
 from src.infrastructure.database.models import Base
 from src.infrastructure.server.config import settings
 from src.infrastructure.utils.asyncio_utils import run_in_executor

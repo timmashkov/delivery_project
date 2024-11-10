@@ -2,7 +2,6 @@ from typing import Any, List, Optional
 from uuid import UUID
 
 from fastapi import Depends
-
 from src.application.service.auth import AuthHandler
 from src.domain.user.interface import UserReadRepository, UserWriteRepository
 from src.domain.user.models import (
@@ -58,7 +57,6 @@ class UserWriteService:
         _salted_pass = self.auth_repo.encode_pass(data.password, data.login)
         processed_data = data.model_dump()
         processed_data["password"] = _salted_pass
-        print(processed_data)
         return await self.write_repo.create(**processed_data)
 
     async def edit_user(

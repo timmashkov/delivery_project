@@ -1,0 +1,7 @@
+**/__pycache__/
+/.idea/
+.venv
+*.log
+.env
+.secrets.*
+*.local.*
