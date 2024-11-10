@@ -34,6 +34,14 @@ class UserRouter:
         return await service.find(filters=filters)
 
     @staticmethod
+    @api_router.get("/is_auth", response_model=BaseResultModel)
+    async def is_auth(
+        refresh_token: str,
+        service=write_service_client,
+    ) -> BaseResultModel:
+        return await service.check_auth(refresh_token=refresh_token)
+
+    @staticmethod
     @api_router.get("/{user_uuid}", response_model=output_model)
     async def show_user(
         user_uuid: UUID,
@@ -83,17 +91,9 @@ class UserRouter:
         return await service.logout_user(refresh_token=refresh_token)
 
     @staticmethod
-    @api_router.get("/refresh", response_model=UserTokenResult)
+    @api_router.post("/refresh", response_model=UserTokenResult)
     async def refresh_user_token(
         refresh_token: str,
         service=write_service_client,
     ) -> UserTokenResult:
         return await service.refresh_token(refresh_token=refresh_token)
-
-    @staticmethod
-    @api_router.get("/is_auth", response_model=BaseResultModel)
-    async def is_auth(
-        refresh_token: str,
-        service=write_service_client,
-    ) -> BaseResultModel:
-        return await service.check_auth(refresh_token=refresh_token)

@@ -1,0 +1,27 @@
+dynaconf_merge: true
+default:
+  NAME: order_service
+  HOST: 0.0.0.0
+  PORT: 8002
+  FAST_API_PATH: app.application:app
+  LOG_LEVEL: info
+  RELOADED: True
+  POSTGRES:
+    dialect: asyncpg
+    host: postgres
+    port: 5432
+    login: postgres
+    password: postgres
+    database: postgres
+    pgbouncer: False
+    echo: False
+    pool_min_size: 10
+    pool_max_size: 20
+    pool_timeout: 90
+    mat_view_time: 15
+  REDIS:
+    host: localhost
+    port: 6379
+    username:
+    password:
+    db: 0

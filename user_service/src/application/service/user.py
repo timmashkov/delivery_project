@@ -78,7 +78,7 @@ class UserWriteService:
         if not await self.auth_repo.verify_password(
             password=data.password,
             salt=data.login,
-            encoded_pass=user.hashed_password,
+            encoded_pass=user.password,
         ):
             raise WrongPassword
         access_token = self.auth_repo.encode_token(user_id=user.uuid)
