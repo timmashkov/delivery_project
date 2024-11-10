@@ -25,6 +25,7 @@ pypika = "^0.48.9"
 tenacity = "^9.0.0"
 fastapi-filter = "^2.0.0"
 pydantic = {extras = ["email"], version = "^2.9.2"}
+sqladmin = "^0.20.1"
 
 
 [build-system]

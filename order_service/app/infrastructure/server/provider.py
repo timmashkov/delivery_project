@@ -1,7 +1,8 @@
 # from app.infrastructure.amqp.broker.kafka import KafkaConsumer, KafkaProducer
 from app.infrastructure.base.singleton import OnlyContainer, Singleton
 from app.infrastructure.database.gateways.alchemy_gateway import AlchemyGateway
-from app.infrastructure.database.gateways.clickhouse_gateway import ClickHouseManager
+from app.infrastructure.database.gateways.clickhouse_gateway import \
+    ClickHouseManager
 from app.infrastructure.server.config import settings
 from redis.asyncio import Redis
 

@@ -1,10 +1,8 @@
 from typing import Any, Union
 
 from orjson import dumps, loads
-from src.infrastructure.exceptions.mq_exceptions import (
-    DeserializationError,
-    SerializationError,
-)
+from src.infrastructure.exceptions.mq_exceptions import (DeserializationError,
+                                                         SerializationError)
 
 
 class BrokerSerializeMixin:

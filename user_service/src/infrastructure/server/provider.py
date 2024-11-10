@@ -3,11 +3,10 @@ from src.application.service.auth import AuthHandler
 from src.infrastructure.amqp.broker.kafka import KafkaConsumer, KafkaProducer
 from src.infrastructure.base.singleton import OnlyContainer, Singleton
 from src.infrastructure.database.gateways.alchemy_gateway import AlchemyGateway
-from src.infrastructure.database.gateways.clickhouse_gateway import ClickHouseManager
-from src.infrastructure.repositories.user_repository import (
-    ReadRepository,
-    WriteRepository,
-)
+from src.infrastructure.database.gateways.clickhouse_gateway import \
+    ClickHouseManager
+from src.infrastructure.repositories.user_repository import (ReadRepository,
+                                                             WriteRepository)
 from src.infrastructure.server.config import settings
 
 

@@ -1,13 +1,7 @@
 import logging
 import uuid
-from asyncio import (
-    AbstractEventLoop,
-    Future,
-    TimeoutError,
-    get_event_loop,
-    sleep,
-    wait_for,
-)
+from asyncio import (AbstractEventLoop, Future, TimeoutError, get_event_loop,
+                     sleep, wait_for)
 from typing import Any, Awaitable, List, NoReturn, Optional, Self, Union
 
 from aiokafka import AIOKafkaConsumer, AIOKafkaProducer

@@ -4,18 +4,15 @@ from uuid import UUID
 from fastapi import Depends
 from src.application.service.auth import AuthHandler
 from src.domain.user.interface import UserReadRepository, UserWriteRepository
-from src.domain.user.models import (
-    CreateUser,
-    LoginUser,
-    UpdateUser,
-    UserReturnData,
-    UserTokenResult,
-)
+from src.domain.user.models import (CreateUser, LoginUser, UpdateUser,
+                                    UserReturnData, UserTokenResult)
 from src.infrastructure.base.base_model import BaseResultModel
-from src.infrastructure.database.gateways.clickhouse_gateway import ClickHouseManager
+from src.infrastructure.database.gateways.clickhouse_gateway import \
+    ClickHouseManager
 from src.infrastructure.database.models import User
 from src.infrastructure.exceptions.token_exceptions import Unauthorized
-from src.infrastructure.exceptions.user_exceptions import UserNotFound, WrongPassword
+from src.infrastructure.exceptions.user_exceptions import (UserNotFound,
+                                                           WrongPassword)
 from src.infrastructure.server.provider import Provider
 
 

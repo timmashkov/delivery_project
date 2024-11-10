@@ -5,14 +5,9 @@ from fastapi import APIRouter, Depends
 from fastapi_filter import FilterDepends
 from pydantic import BaseModel
 from src.application.service.user import UserReadService, UserWriteService
-from src.domain.user.models import (
-    CreateUser,
-    LoginUser,
-    UpdateUser,
-    UserFilter,
-    UserReturnData,
-    UserTokenResult,
-)
+from src.domain.user.models import (CreateUser, LoginUser, UpdateUser,
+                                    UserFilter, UserReturnData,
+                                    UserTokenResult)
 from src.infrastructure.base.base_model import BaseResultModel
 
 

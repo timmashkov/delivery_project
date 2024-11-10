@@ -6,16 +6,12 @@ from uuid import UUID
 import jwt
 import orjson
 from fastapi import Security
-from fastapi.security import APIKeyHeader, HTTPAuthorizationCredentials, HTTPBearer
+from fastapi.security import (APIKeyHeader, HTTPAuthorizationCredentials,
+                              HTTPBearer)
 from redis.asyncio import Redis
 from src.infrastructure.exceptions.token_exceptions import (
-    InvalidRefreshToken,
-    InvalidScopeToken,
-    InvalidToken,
-    RefreshTokenExpired,
-    TokenExpired,
-    Unauthorized,
-)
+    InvalidRefreshToken, InvalidScopeToken, InvalidToken, RefreshTokenExpired,
+    TokenExpired, Unauthorized)
 
 
 class AuthHandler:

@@ -1,14 +1,10 @@
 import asyncio
 import logging
 
-from src.infrastructure.database.gateways.clickhouse_gateway import ClickHouseManager
-from src.infrastructure.database.models import (
-    Permission,
-    Role,
-    RolePermission,
-    User,
-    UserRole,
-)
+from src.infrastructure.database.gateways.clickhouse_gateway import \
+    ClickHouseManager
+from src.infrastructure.database.models import (Permission, Role,
+                                                RolePermission, User, UserRole)
 from src.infrastructure.server.provider import Provider
 from src.infrastructure.utils.asyncio_utils import safe_gather
 
