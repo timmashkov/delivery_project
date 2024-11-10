@@ -1,9 +1,0 @@
-**/__pycache__/
-/.idea/
-/rabbitmq
-.venv
-*.log
-.env
-.secrets.*
-*.local.*
-settings.yaml

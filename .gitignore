@@ -3,5 +3,6 @@
 .venv
 *.log
 .env
+.gitignore
 .secrets.*
 *.local.*
