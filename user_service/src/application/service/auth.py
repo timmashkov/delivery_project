@@ -140,3 +140,4 @@ class AuthHandler:
         if raw_data := await self.redis_client.get(user_uuid):
             return orjson.loads(raw_data)
         return None
+

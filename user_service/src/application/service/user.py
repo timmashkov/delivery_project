@@ -1,3 +1,4 @@
+import time
 from typing import Any, List, Optional
 from uuid import UUID
 
@@ -78,11 +79,13 @@ class UserWriteService:
             raise WrongPassword
         access_token = self.auth_repo.encode_token(user_id=user.uuid)
         refresh_token = self.auth_repo.encode_refresh_token(user_id=user.uuid)
+
         await self.auth_repo.save_tokens_to_session(
             access_token=access_token,
             refresh_token=refresh_token,
             user_uuid=str(user.uuid),
         )
+
         return UserTokenResult(
             access_token=access_token,
             refresh_token=refresh_token,

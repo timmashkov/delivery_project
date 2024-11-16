@@ -4,6 +4,9 @@ from contextlib import asynccontextmanager
 from typing import NoReturn, Optional
 
 from fastapi import APIRouter, FastAPI
+from sqladmin import Admin
+from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession
+
 from src.infrastructure.base.singleton import Singleton
 
 
@@ -15,6 +18,8 @@ class ApiServer(Singleton):
         start_callbacks: list[callable] = None,
         stop_callbacks: list[callable] = None,
         logging_config: Optional[dict] = None,
+        engine: Optional[AsyncEngine] = None,
+        session_maker: Optional[AsyncSession] = None,
     ) -> NoReturn:
         self.name = name
         self.logging_config = logging_config
@@ -22,6 +27,7 @@ class ApiServer(Singleton):
             title=name,
             lifespan=self._lifespan,
         )
+        self.admin = Admin(app=self.app, engine=engine, session_maker=session_maker)
         self.routers = routers or []
         self._init_routers()
         self.start_callbacks = start_callbacks or []
@@ -35,6 +41,7 @@ class ApiServer(Singleton):
     def _init_logger(self) -> None:
         logging.config.dictConfig(self.logging_config)
         logging.info("Инициализация logger прошла успешно")
+
 
     @asynccontextmanager
     async def _lifespan(self, _app: FastAPI):
